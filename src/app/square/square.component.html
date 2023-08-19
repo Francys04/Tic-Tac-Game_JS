@@ -1,0 +1,10 @@
+
+<div class="game-square
+ rounded-lg 
+ border"
+    (click)="changePlayer()"
+    [ngClass]="{coClick: gameSerice.winner}"
+>
+    <p class="text-yellow-400"> {{square.state}}</p>
+
+</div>

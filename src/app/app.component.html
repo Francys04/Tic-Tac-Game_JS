@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ... (meta tags and title) -->
+
+  <!-- Include the Tailwind CSS stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Link your custom styles.css file -->
+  <link rel="stylesheet" href="app.component.css">
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-blue-900 min-h-screen min-w-screen">
+  <div class="header pt-20">
+    <h1 class="text-center text-6xl text-teal-400 font-extrabold">
+      Tic- <span class="text-yellow-300"> Tac </span> - Game
+    </h1>
+
+    <h1 class="text-center text-orange text-4xl mt-10 font-bold" *ngIf="!gameSerice.winner"
+    [ngClass]="{'text-teal-300': gameSerice.activePlayer == 'O'}">
+      {{gameSerice.activePlayer}}'s Turn
+    </h1>
+
+    <h1 class="text-center text-red-500 mt-10 text-4xl font-semibold" *ngIf="gameSerice.winner">
+      {{gameSerice.activePlayer}} WON !
+    </h1>
+
+    <button class="bg-purple-400 hover:bg-yellow-400 text-dark font-bold py-2 px-4 mx-auto block mt-5" *ngIf="gameSerice.gameOver" (click)="resetGame()">Reset</button>
+  </div>
+  <app-board></app-board>
+</body>
+</html>
